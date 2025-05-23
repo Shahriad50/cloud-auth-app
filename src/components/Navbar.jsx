@@ -36,8 +36,11 @@ function Navbar() {
         <div className="space-x-4">
           {session ? (
             <>
+              <Link to="/user-info" className="text-white hover:text-gray-200">
+                Profile
+              </Link>
               <Link to="/user-details" className="text-white hover:text-gray-200">
-                User Details
+                Edit Details
               </Link>
               <button
                 onClick={handleLogout}

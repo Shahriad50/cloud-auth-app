@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import LoginPage from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
 import UserDetails from './components/UserDetails';
+import UserDetailsPage from './Pages/UserDetailsPage';
 function App() {
   const [session, setSession] = useState(null);
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/user-details" element={<UserDetails session={session} />} />
+        <Route path="/user-info" element={<UserDetailsPage session={session} />} />
       </Routes>
     </div>
   );
