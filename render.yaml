@@ -1,11 +1,12 @@
 services:
-     - type: web
+     - type: static
        name: cloud-auth-app
-       env: node
+       env: static
        plan: free
        branch: main
        repo: https://github.com/shahriad50/cloud-auth-app
        buildCommand: npm install && npm run build
+       staticPublishPath: dist
        startCommand: npm run start
        envVars:
          - key: VITE_SUPABASE_URL
