@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 
 function Home({ session }) {
   const [username, setUsername] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (session) {
       // Fetch username from userinfo table
@@ -39,6 +39,12 @@ function Home({ session }) {
       console.error('Logout error:', error.message);
     }
   };
+  const handleUpdateProfile = async()=>{
+   navigate('/user-details')
+  }
+  const handleShowDetails = async() =>{
+    navigate('/user-info')
+  }
 
   return (
     <div className="container mx-auto p-6">
@@ -54,6 +60,11 @@ function Home({ session }) {
               <p className="text-gray-600 mb-6">
                 You are logged in to AuthApp.
               </p>
+              <button className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-blue-700" onClick={handleShowDetails}>Show User-Info</button>
+              <button onClick={handleUpdateProfile} 
+               className="bg-green-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                Update Profile
+               </button>
               <button
                 onClick={handleLogout}
                 className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
