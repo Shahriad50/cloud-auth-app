@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { supabase } from './supabaseClient';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
+import Home from './Pages/Home';
+import LoginPage from './Pages/LoginPage';
+import SignupPage from './Pages/SignupPage';
 
 function App() {
    const [session, setSession] = useState(null);
