@@ -1,0 +1,16 @@
+services:
+     - type: web
+       name: react-auth-app
+       env: node
+       plan: free
+       branch: main
+       repo: https://github.com/shahriad50/cloud-auth-app
+       buildCommand: npm install && npm run build
+       startCommand: npm run start
+       envVars:
+         - key: VITE_SUPABASE_URL
+           sync: false
+         - key: VITE_SUPABASE_ANON_KEY
+           sync: false
+         - key: PORT
+           value: 3000
