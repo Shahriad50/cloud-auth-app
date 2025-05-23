@@ -6,7 +6,7 @@ function Signup({ onSubmit }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (!username || !email || !password) {
       setError('Please fill in all fields');
@@ -21,7 +21,14 @@ function Signup({ onSubmit }) {
       return;
     }
     setError('');
-    onSubmit({ username, email, password });
+    const result = await onSubmit({ username, email, password });
+    if (result && result.error) {
+    if (result && result.error) {
+      setError(result.error);
+    } else {
+      setError('');
+    }
+  }
   };
 
   return (
